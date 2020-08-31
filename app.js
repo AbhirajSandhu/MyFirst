@@ -18,7 +18,13 @@ var commentRoutes	 = require("./routes/comments"),
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://sandhuz:myneisajshsu0001!@cluster0.x1dbj.mongodb.net/<dbname>?retryWrites=true&w=majority").then(()=>{
+	console.log("Connected to MongoDB");
+}).catch((err)=>{
+	console.log("Error:", err.message);
+})
+
 
 app.use(bodyParser.urlencoded({extended : true})); //yaad kro to use body parser
 app.set("view engine","ejs");
